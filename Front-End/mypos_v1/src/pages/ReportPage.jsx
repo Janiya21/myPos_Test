@@ -28,47 +28,19 @@ const ReportPage = () => {
                                     <Form.Field
                                         id='form-input-control-desc'
                                         control={Input}
-                                        label='Date'
+                                        label='Date From'
                                         placeholder='2022-10-10'
                                     />
                                     <Form.Field
                                         control={Input}
-                                        label='Invoice ID'
-                                        placeholder='Invoice code'
+                                        label='Date To'
+                                        placeholder='2022-10-12'
                                         id='form-input-control-name'
                                     />
-                                    <Form.Field
-                                                id='form-input-control-qty'
-                                                control={Input}
-                                                label='Customer ID'
-                                                placeholder='Customer code'
-                                    />
-                                </Form.Group>
-                                <Form.Group style={{margin:"20px 0 0 13vw"}}>
-                                    <Form.Field
-                                        id='form-input-control-desc'
-                                        control={Input}
-                                        placeholder='item description'
-                                    />
-                                    <Form.Field style={{width:"21vw"}}
-                                        control={Input}
-                                        placeholder='Description'
-                                        id='form-input-control-name'
-                                    />
-                                    <Form.Field
-                                                id='form-input-control-qty'
-                                                control={Input}
-                                                placeholder='item quantity'
-                                    />
-                                    <Form.Field style={{width:"21vw"}}
-                                                id='form-input-control-unitPrice'
-                                                control={Input}
-                                                placeholder='Unit Price'
-                                    />
-                                    <Form.Field
+                                    <Form.Field style={{margin:"22px", width:"19vw"}}
                                                 id='form-button-control-clear'
                                                 control={Button}
-                                                content='Add To Cart'
+                                                content='Search'
                                     />
                                 </Form.Group>
                             </Form>
@@ -125,12 +97,6 @@ const ReportPage = () => {
                             </Table>
                         </Grid.Row>
                         <Grid.Row>
-                            <Input disabled placeholder='Total' style={{margin:"10px 0 0 75vw", width:"19vw"}}/>
-                            <Form.Field style={{margin:"10px 0 0 75vw", width:"19vw"}}
-                                        id='form-button-control-process'
-                                        control={Button}
-                                        content='Process'
-                            />
                             <Form.Field style={{margin:"10px 0 0 75vw", width:"19vw"}}
                                         id='form-button-control-clear'
                                         control={Button}
