@@ -2,46 +2,40 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient.Memcached;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepertmentController : ControllerBase
+    public class InvoiceController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        public DepertmentController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        public List<Models.Invoice> list = new List<Models.Invoice>();
 
-        [HttpGet]
-        public JsonResult Get()
+        public void OnGet()
         {
-            string query = @"
-                        select * from 
-                        dbo.products
-            ";
-
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-            MySqlDataReader myReader;
-            using (MySqlConnection mycon = new MySqlConnection(sqlDataSource))
+            string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-                mycon.Open();
-                using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
+                connection.Open();
+                string sql = "Select * from Invoice_Hed";
+                using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    mycon.Close();
+                    using(SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read()){
+                            string v = reader.GetString(1);
+                            Console.WriteLine(v);
+                        }
+                    }
                 }
             }
-
-            return new JsonResult(table);
         }
     }
+
+    
 }

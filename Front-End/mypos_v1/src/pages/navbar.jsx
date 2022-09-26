@@ -14,7 +14,7 @@ function Navbar() {
                         <Link to="/invoice">Invoice</Link>
                     </a>
                     <a className="active item">
-                        <Link to="/">Reports</Link>
+                        <Link to="/report">Reports</Link>
                     </a>
                 </div>
             </div>
