@@ -12,13 +12,13 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/Invoicing")]
+    [Route("api/invoice")]
     [ApiController]
     public class InvoiceController : ControllerBase
     {
         public List<Models.Invoice> list = new List<Models.Invoice>();
 
-        [HttpGet("gg")]
+        [HttpGet("getAll")]
         public JsonResult OnGet()
         {
             string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";

@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.Models
 {
-    public class Invoice_DEtails
+    public class Invoice_Details
     {
         public int Invoice_Details_Id { get; set; }
         public int Invoice_Details_qty { get; set; }

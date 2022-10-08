@@ -14,7 +14,7 @@ namespace WebApplication1.Controllers
     {
         public List<Models.Product> list = new List<Models.Product>();
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public JsonResult OnGet()
         {
             string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
