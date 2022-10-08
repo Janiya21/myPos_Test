@@ -1,10 +1,11 @@
 ﻿namespace WebApplication1.Models
 {
-    public class Product
+    public class Invoice_DEtails
     {
-        public int Products_id { get; set; }
-        public string Product_Name { get; set; }
-        public string Products_price { get; set; }
-        public int Products_qty { get; set; }
+        public int Invoice_Details_Id { get; set; }
+        public int Invoice_Details_qty { get; set; }
+        public decimal Invoice_Details_amount { get; set; }
+        public int Invoice_Hed_Invoice_Hed_Id { get; set; }
+        public int Products_Product_id { get; set; }
     }
 }

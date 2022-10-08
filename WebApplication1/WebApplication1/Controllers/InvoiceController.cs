@@ -12,13 +12,13 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Invoicing")]
     [ApiController]
     public class InvoiceController : ControllerBase
     {
         public List<Models.Invoice> list = new List<Models.Invoice>();
 
-        [HttpGet]
+        [HttpGet("gg")]
         public JsonResult OnGet()
         {
             string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
                         while (reader.Read())
                         {
                             Invoice invoiceList = new Invoice();
-                            invoiceList.Invoice_Head_id = reader.GetInt16(0);
+                            invoiceList.Invoice_Head_id = reader.GetInt32(0);
                             invoiceList.Invoice_Head_Customer = reader.GetString(1);
                             invoiceList.Invoice_Head_Amount = reader.GetString(2);
                             invoiceList.Invoice_Head_Date = reader.GetDateTime(3);
