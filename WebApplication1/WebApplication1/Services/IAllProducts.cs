@@ -10,7 +10,7 @@ namespace WebApplication1.Services
 
         public JsonResult AddProduct(Product product);
 
-        public Product UpdateProduct(string id, Product customer);
+        public JsonResult UpdateProduct(Product customer);
 
         public JsonResult DeleteProduct(string id);
     }

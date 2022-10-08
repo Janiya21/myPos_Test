@@ -78,9 +78,23 @@ namespace WebApplication1.Services
             return new JsonResult(id);
         }
 
-        public Product UpdateProduct(string id, Product customer)
+        public JsonResult UpdateProduct(Product p)
         {
-            throw new System.NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var mycommand = new SqlCommand("UPDATE Product SET Product_name=@val2, Products_price=@val3," +
+                    " Products_qty=@val4 WHERE Products_id=@Products_id",
+                               connection);
+
+                mycommand.Parameters.AddWithValue("@val1", p.Products_id);
+                mycommand.Parameters.AddWithValue("@val2", p.Product_Name);
+                mycommand.Parameters.AddWithValue("@val3", p.Products_qty);
+                mycommand.Parameters.AddWithValue("@val4", p.Products_qty);
+                mycommand.Parameters.AddWithValue("@Products_id", p.Products_id);
+                mycommand.ExecuteNonQuery();
+            }
+            return new JsonResult(p);
         }
     }
 }

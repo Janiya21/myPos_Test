@@ -41,5 +41,12 @@ namespace WebApplication1.Controllers
             return _productService.DeleteProduct(id); ;
         }
 
+        [HttpPut("put")]
+        public JsonResult UpdateProduct(Product p)
+        {
+            Console.WriteLine(p.Products_id);
+            return _productService.UpdateProduct(p);
+        }
+
     }
 }
