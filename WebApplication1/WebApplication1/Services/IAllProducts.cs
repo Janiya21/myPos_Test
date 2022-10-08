@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
     public interface IAllProducts
     {
-        public List<Product> GetProduct();
+        public JsonResult GetProduct();
 
-        public Product AddProduct(Product product);
+        public JsonResult AddProduct(Product product);
 
         public Product UpdateProduct(string id, Product customer);
 
