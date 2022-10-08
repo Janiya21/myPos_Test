@@ -12,6 +12,6 @@ namespace WebApplication1.Services
 
         public Product UpdateProduct(string id, Product customer);
 
-        public string DeleteProduct(string id);
+        public JsonResult DeleteProduct(string id);
     }
 }

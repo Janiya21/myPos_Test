@@ -12,6 +12,7 @@ namespace WebApplication1.Services
 
         private List<Models.Product> _product;
         public List<Models.Product> _list;
+        string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
 
         public AllProducts()
         {
@@ -21,7 +22,6 @@ namespace WebApplication1.Services
 
         public JsonResult GetProduct()
         {
-            string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 Console.WriteLine("fucker get");
@@ -49,7 +49,6 @@ namespace WebApplication1.Services
 
         public JsonResult AddProduct(Product product)
         {
-            string connectionString = "Data Source=.;Initial Catalog=test_db;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -65,9 +64,18 @@ namespace WebApplication1.Services
             return new JsonResult(product);
         }
 
-        public string DeleteProduct(string id)
+        public JsonResult DeleteProduct(string id)
         {
-            throw new System.NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var mycommand = new SqlCommand("DELETE FROM Product WHERE Products_id=@Products_id",
+                               connection);
+
+                mycommand.Parameters.AddWithValue("@Products_id", id);
+                mycommand.ExecuteNonQuery();
+            }
+            return new JsonResult(id);
         }
 
         public Product UpdateProduct(string id, Product customer)

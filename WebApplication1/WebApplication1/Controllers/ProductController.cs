@@ -31,7 +31,14 @@ namespace WebApplication1.Controllers
         [HttpPost("post")]
         public JsonResult AddProduct(Product product)
         {
-            return _productService.AddProduct(product); ;
+            return _productService.AddProduct(product);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public JsonResult DeleteProduct(String id)
+        {
+            Console.WriteLine(id);
+            return _productService.DeleteProduct(id); ;
         }
 
     }
