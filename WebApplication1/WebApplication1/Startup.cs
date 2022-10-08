@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -38,6 +38,8 @@ namespace WebApplication1
 
 
             services.AddControllers();
+
+            services.AddSingleton<IAllProducts, AllProducts>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -2,16 +2,53 @@ import React, { useState, useEffect } from 'react';
 import '../assets/itemPage.css'
 import {Grid, Table, Form, Input, Statistic, Button, Select, Icon, Image, Segment} from 'semantic-ui-react'
 import Navbar from './navbar';
+import axios from "axios";
 
 const ItemPage = () => {
     const [loading, setLoading] = useState(false);
+    const [productLoading, setProductLoading] = useState(false);
+    const [products, setProducts] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
         setLoading(true);
+        let prods = await getVehicles();
         setTimeout(() => {
             setLoading(false);
-        }, 500);
+            setProductLoading(false);
+            console.log(products);
+        }, 1000);
+        console.log(prods);
     }, []);
+
+    const getVehicles = async () => {
+        setProductLoading(true);
+        const promise = new Promise((resolve, reject) => {
+            axios.get('http://localhost:59146/api/products/getAll')
+                .then((res) => {
+                    setProducts(res.data);
+                    return resolve(res.data)
+                })
+                .finally(() => setProductLoading(false))
+                .catch((err) => {
+                    return resolve(err)
+                })
+        });
+        return await promise;
+    }
+
+    const allProductsReturn = () => {
+        return products.map((element) => {
+                return (
+                    <Table.Row>
+                        <Table.Cell>{element.Products_id}</Table.Cell>
+                        <Table.Cell>{element.Product_Name}</Table.Cell>
+                        <Table.Cell>{element.Products_price}</Table.Cell>
+                        <Table.Cell>{element.Products_id}</Table.Cell>
+                    </Table.Row>
+                )
+            }
+        );
+    }
 
     return (
         // style={{height:"100vh",backgroundImage:'url("https://www.hotshot-sports.com/wp-content/uploads/multisports_650017870.jpg',backgroundRepeat:"no-repeat, repeat"}}
@@ -88,42 +125,7 @@ const ItemPage = () => {
                                 </Table.Header>
 
                                 <Table.Body>
-                                    <Table.Row>
-                                        <Table.Cell>Product ID</Table.Cell>
-                                        <Table.Cell>Product Name</Table.Cell>
-                                        <Table.Cell>Qty</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>Jamie</Table.Cell>
-                                        <Table.Cell>Approved</Table.Cell>
-                                        <Table.Cell>Requires call</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>Jill</Table.Cell>
-                                        <Table.Cell>Denied</Table.Cell>
-                                        <Table.Cell>None</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row >
-                                        <Table.Cell>John</Table.Cell>
-                                        <Table.Cell>No Action</Table.Cell>
-                                        <Table.Cell>None</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>Jamie</Table.Cell>
-                                        <Table.Cell >Approved</Table.Cell>
-                                        <Table.Cell >Requires call</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.Cell>Jill</Table.Cell>
-                                        <Table.Cell >Denied</Table.Cell>
-                                        <Table.Cell>None</Table.Cell>
-                                        <Table.Cell>Unit Price</Table.Cell>
-                                    </Table.Row>
+                                    {productLoading ? 'Hukanavane itin' : allProductsReturn()}
                                 </Table.Body>
                             </Table>
                         </Grid.Column>

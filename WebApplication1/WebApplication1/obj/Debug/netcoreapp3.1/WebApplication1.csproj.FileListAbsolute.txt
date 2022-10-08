@@ -40,3 +40,8 @@ C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplic
 C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\JANITH\Desktop\Desktop All Here\Asp.Net\ASP_3\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
